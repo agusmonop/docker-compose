@@ -1,0 +1,81 @@
+name: 9router
+services:
+  9router:
+    cpu_shares: 90
+    command: []
+    container_name: 9router
+    depends_on:
+      headroom:
+        condition: service_started
+        required: true
+    deploy:
+      resources:
+        limits:
+          memory: 1912M
+    environment:
+      - DATA_DIR=/app/data
+      - HEADROOM_URL=http://headroom:8787
+      - HOSTNAME=0.0.0.0
+      - INITIAL_PASSWORD=bungtomo
+      - NODE_ENV=production
+      - PORT=20128
+    hostname: 9router
+    image: decolua/9router:latest
+    labels:
+      icon: https://raw.githubusercontent.com/agusmonop/lestech.my.id/master/9router.png
+    ports:
+      - mode: ingress
+        target: 20128
+        published: "20128"
+        protocol: tcp
+    restart: always
+    volumes:
+      - type: bind
+        source: /DATA/AppData/9router/data
+        target: /app/data
+        bind:
+          create_host_path: true
+    devices: []
+    cap_add: []
+    networks:
+      - default
+    privileged: false
+  headroom:
+    cpu_shares: 90
+    command: []
+    container_name: headroom
+    deploy:
+      resources:
+        limits:
+          memory: 1912M
+    hostname: headroom
+    image: ghcr.io/chopratejas/headroom:latest
+    labels:
+      icon: https://raw.githubusercontent.com/agusmonop/lestech.my.id/master/9router.png
+    ports:
+      - mode: ingress
+        target: 8787
+        published: "8787"
+        protocol: tcp
+    restart: always
+    volumes: []
+    devices: []
+    cap_add: []
+    environment: []
+    networks:
+      - default
+    privileged: false
+networks:
+  default:
+    name: 9router_default
+x-casaos:
+  author: self
+  category: self
+  hostname: ""
+  icon: https://raw.githubusercontent.com/agusmonop/lestech.my.id/master/9router.png
+  index: /
+  is_uncontrolled: false
+  port_map: "20128"
+  scheme: http
+  title:
+    custom: 9router
