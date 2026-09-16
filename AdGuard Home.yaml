@@ -1,0 +1,77 @@
+name: big-bear-adguard-home-host
+services:
+  big-bear-adguard-home-host:
+    cpu_shares: 90
+    command: []
+    container_name: adguardhome
+    deploy:
+      resources:
+        limits:
+          memory: 1906M
+    hostname: adguardhome
+    image: adguard/adguardhome:v0.107.78@sha256:1ea34eafe5dc691007946e8eaab7bf46b0de9412f39213d8c06e48b53bf9a6c5
+    labels:
+      icon: https://cdn.jsdelivr.net/gh/selfhst/icons/png/adguard-home.png
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /DATA/AppData/adguard-home/data/work
+        target: /opt/adguardhome/work
+        bind:
+          create_host_path: true
+      - type: bind
+        source: /DATA/AppData/adguard-home/data/conf
+        target: /opt/adguardhome/conf
+        bind:
+          create_host_path: true
+    ports: []
+    devices: []
+    cap_add: []
+    environment: []
+    network_mode: host
+    privileged: false
+x-casaos:
+  architectures:
+    - amd64
+    - arm64
+  author: BigBearTechWorld
+  category: Networking
+  description:
+    en_US: Use if you're going to use Adguard Home as a DHCP server. AdGuard Home is
+      a network-wide software for blocking ads and tracking. After you set it
+      up, it'll cover all your home devices, and you won't need any client-side
+      software for that. Learn more on our official Github repository.
+  developer: AdGuardTeam
+  hostname: ""
+  icon: https://cdn.jsdelivr.net/gh/selfhst/icons/png/adguard-home.png
+  id: com.bigbeartechworld.adguard-home-host
+  index: /
+  is_uncontrolled: false
+  main: big-bear-adguard-home-host
+  port_map: "80"
+  scheme: http
+  screenshot_link:
+    - https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@f2eaaebe9b6d487a2b594a716fc5bbcf8e80ac0d/Apps/AdGuardHome/screenshot-1.png
+    - https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@f2eaaebe9b6d487a2b594a716fc5bbcf8e80ac0d/Apps/AdGuardHome/screenshot-2.png
+    - https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@f2eaaebe9b6d487a2b594a716fc5bbcf8e80ac0d/Apps/AdGuardHome/screenshot-3.png
+  store_app_id: big-bear-adguard-home-host
+  tagline:
+    en_US: Network Mode is host. Network-wide ads & trackers blocking DNS server.
+  thumbnail: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@f2eaaebe9b6d487a2b594a716fc5bbcf8e80ac0d/Apps/AdGuardHome/thumbnail.png
+  tips:
+    before_install:
+      en_US: >
+        Run this script:
+
+
+        ```
+
+        bash -c "$(wget -qLO - https://raw.githubusercontent.com/bigbeartechworld/big-bear-scripts/master/generate-adguard-home-config/run.sh)"
+
+        ```
+
+
+        After running this script, you need to restart the container.
+  title:
+    custom: AdGuard Home
+    en_US: AdGuard Home (HOST)
