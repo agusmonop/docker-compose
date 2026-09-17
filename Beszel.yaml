@@ -1,0 +1,60 @@
+name: big-bear-beszel
+services:
+  big-bear-beszel:
+    cpu_shares: 90
+    container_name: beszel
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+    hostname: beszel
+    image: henrygd/beszel:0.18.7@sha256:a849ad80814b6a1a3be665304dcace5d4854b3bed7bde4dd1227e8ce1b82d477
+    labels:
+      icon: https://cdn.jsdelivr.net/gh/bigbeartechworld/big-bear-universal-apps/apps/beszel/logo.jpg
+    ports:
+      - mode: ingress
+        target: 8090
+        published: "8090"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /DATA/AppData/beszel
+        target: /beszel_data
+        bind:
+          create_host_path: true
+    devices: []
+    cap_add: []
+    command: []
+    environment: []
+    networks:
+      - default
+    privileged: false
+networks:
+  default:
+    name: big-bear-beszel_default
+x-casaos:
+  architectures:
+    - amd64
+    - arm64
+  author: BigBearTechWorld
+  category: Developer
+  description:
+    en_US: A lightweight server resource monitoring hub with historical data, docker
+      stats, and alerts.
+  developer: henrygd
+  hostname: ""
+  icon: https://cdn.jsdelivr.net/gh/bigbeartechworld/big-bear-universal-apps/apps/beszel/logo.jpg
+  id: com.bigbeartechworld.beszel
+  index: /
+  is_uncontrolled: false
+  main: big-bear-beszel
+  port_map: "8090"
+  scheme: http
+  store_app_id: big-bear-beszel
+  tagline:
+    en_US: Server Monitoring Hub
+  thumbnail: ""
+  title:
+    custom: ""
+    en_US: Beszel

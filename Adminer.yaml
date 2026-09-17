@@ -1,0 +1,135 @@
+name: adminer
+services:
+  adminer:
+    cpu_shares: 90
+    command: []
+    container_name: adminer
+    deploy:
+      resources:
+        limits:
+          memory: 1912M
+        reservations:
+          memory: "33554432"
+    hostname: adminer
+    image: adminer:latest
+    labels:
+      icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Adminer/icon.svg
+    ports:
+      - mode: ingress
+        target: 8080
+        published: "8080"
+        protocol: tcp
+    restart: unless-stopped
+    volumes: []
+    devices: []
+    cap_add: []
+    environment: []
+    networks:
+      - default
+    privileged: false
+networks:
+  default:
+    name: adminer_default
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  author: Tim Düsterhus
+  category: Developer
+  description:
+    en_US: Adminer (formerly phpMinAdmin) is a full-featured database management
+      tool written in PHP. Conversely to phpMyAdmin, it consist of a single file
+      ready to deploy to the target server. Adminer is available for MySQL,
+      PostgreSQL, SQLite, MS SQL, Oracle, Firebird, SimpleDB, Elasticsearch and
+      MongoDB.
+    zh_CN: Adminer（前身为phpMinAdmin）是一个用PHP编写的功能齐全的数据库管理工具。区别于phpMyAdmin，它仅为单个部署到目标服务器的文件（轻量）。Adminer可用于MySQL、PostgreSQL、SQLite、MS
+      SQL、Oracle、Firebird、SimpleDB、Elasticsearch和MongoDB。
+  developer: Jakub Vrána
+  docs: https://www.adminer.org/en/
+  hostname: ""
+  icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Adminer/icon.svg
+  id: org.icewhale.adminer
+  index: /
+  is_uncontrolled: false
+  main: adminer
+  port_map: "8080"
+  release_notes:
+    de_DE: >-
+      - v5.4.2 avoids a denial-of-service issue in the version check.
+
+      - It improves JSON display, generated values, exports, database support, and plugins.
+    el_GR: >-
+      - v5.4.2 avoids a denial-of-service issue in the version check.
+
+      - It improves JSON display, generated values, exports, database support, and plugins.
+    en_GB: >-
+      - v5.4.2 avoids a denial-of-service issue in the version check.
+
+      - It improves JSON display, generated values, exports, database support, and plugins.
+    en_US: >-
+      - v5.4.2 avoids a denial-of-service issue in the version check.
+
+      - It improves JSON display, generated values, exports, database support, and plugins.
+    fr_FR: >-
+      - v5.4.2 avoids a denial-of-service issue in the version check.
+
+      - It improves JSON display, generated values, exports, database support, and plugins.
+    hr_HR: >-
+      - v5.4.2 avoids a denial-of-service issue in the version check.
+
+      - It improves JSON display, generated values, exports, database support, and plugins.
+    it_IT: >-
+      - v5.4.2 avoids a denial-of-service issue in the version check.
+
+      - It improves JSON display, generated values, exports, database support, and plugins.
+    ja_JP: >-
+      - v5.4.2 avoids a denial-of-service issue in the version check.
+
+      - It improves JSON display, generated values, exports, database support, and plugins.
+    ko_KR: >-
+      - v5.4.2 avoids a denial-of-service issue in the version check.
+
+      - It improves JSON display, generated values, exports, database support, and plugins.
+    nb_NO: >-
+      - v5.4.2 avoids a denial-of-service issue in the version check.
+
+      - It improves JSON display, generated values, exports, database support, and plugins.
+    pt_PT: >-
+      - v5.4.2 avoids a denial-of-service issue in the version check.
+
+      - It improves JSON display, generated values, exports, database support, and plugins.
+    ru_RU: >-
+      - v5.4.2 avoids a denial-of-service issue in the version check.
+
+      - It improves JSON display, generated values, exports, database support, and plugins.
+    sv_SE: >-
+      - v5.4.2 avoids a denial-of-service issue in the version check.
+
+      - It improves JSON display, generated values, exports, database support, and plugins.
+    tr_TR: >-
+      - v5.4.2 avoids a denial-of-service issue in the version check.
+
+      - It improves JSON display, generated values, exports, database support, and plugins.
+    zh_CN: >-
+      - v5.4.2 avoids a denial-of-service issue in the version check.
+
+      - It improves JSON display, generated values, exports, database support, and plugins.
+  repo: https://github.com/vrana/adminer
+  scheme: http
+  screenshot_link:
+    - https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Adminer/screenshot-1.png
+    - https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Adminer/screenshot-2.png
+    - https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Adminer/screenshot-3.png
+  store_app_id: adminer
+  support: https://github.com/vrana/adminer/issues
+  tagline:
+    en_US: Database management in a single PHP file
+    zh_CN: 单PHP文件的数据库管理工具
+  thumbnail: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Adminer/thumbnail.png
+  title:
+    custom: ""
+    en_US: Adminer
+  update_at: 2026-02-08T00:00:00Z
+  version: 5.4.2
+  website: https://www.adminer.org
